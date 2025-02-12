@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal Mata Kuliah</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <script src="{% static 'js/script.js' %}" defer></script>
+  </head>
+  <body>
+    <div class="background"></div>
+    <!-- Background transparan -->
+
+    <!-- Sidebar Jadwal -->
+    <div class="sidebar">
+      <h2>Jadwal Hari Ini</h2>
+      {% if jadwal_hari_ini %} {% for jadwal in jadwal_hari_ini %}
+      <div class="schedule-item">
+        <h3>{{ jadwal.mata_kuliah.nama }}</h3>
+        <p>Dosen: {{ jadwal.mata_kuliah.dosen }}</p>
+        <p>
+          Waktu: <span>{{ jadwal.jam_mulai|time:"H:i" }}</span> -
+          <span>{{ jadwal.jam_selesai|time:"H:i" }}</span>
+        </p>
+        <p id="countdown-{{ forloop.counter }}"></p>
+
+        <button onclick="bukaModal('{{ jadwal.pj_whatsapp }}')">
+          Hubungi PJ
+        </button>
+        <button onclick="ingatkan('{{ jadwal.id }}')">Ingatkan</button>
+      </div>
+      {% endfor %} {% else %}
+      <p>Tidak ada jadwal hari ini.</p>
+      {% endif %}
+
+      <h2>Jadwal Besok</h2>
+      {% if jadwal_besok %} {% for jadwal in jadwal_besok %}
+      <div class="schedule-item">
+        <h3>{{ jadwal.mata_kuliah.nama }}</h3>
+        <p>Dosen: {{ jadwal.mata_kuliah.dosen }}</p>
+        <p>
+          Waktu:
+          <span class="start-time">{{ jadwal.jam_mulai|time:"H:i" }}</span> -
+          <span class="end-time">{{ jadwal.jam_selesai|time:"H:i" }}</span>
+        </p>
+        <p id="countdown-besok-{{ forloop.counter }}"></p>
+        <button onclick="bukaModal('{{ jadwal.pj_whatsapp }}')">
+          Hubungi PJ
+        </button>
+        <button onclick="ingatkan('{{ jadwal.id }}')">Ingatkan</button>
+      </div>
+      {% endfor %} {% else %}
+      <p>Tidak ada jadwal besok.</p>
+      {% endif %}
+    </div>
+
+    <!-- Konten Utama -->
+    <div class="main-content">
+      <!-- Box untuk Jam & Tanggal -->
+      <div class="time-box">
+        <h1 id="current-time">19.07.19</h1>
+        <!-- Jam besar -->
+        <p id="current-date">Selasa, 11 Februari 2025</p>
+        <!-- Tanggal -->
+      </div>
+    </div>
+
+    <!-- Modal untuk Hubungi PJ -->
+    <div id="modalHubungiPJ" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="tutupModal()">&times;</span>
+        <h2 style="text-align: center">Selamat Datang di Kolom PJ</h2>
+        <p style="text-align: left">
+          Silakan ketik pesan Anda sejelas mungkin.
+        </p>
+
+        <label for="nama" style="text-align: left; display: block">Nama:</label>
+        <input type="text" id="nama" placeholder="Masukkan Nama Anda" />
+
+        <label for="nim" style="text-align: left; display: block">NIM:</label>
+        <input type="text" id="nim" placeholder="Masukkan NIM Anda" />
+
+        <label for="pesan" style="text-align: left; display: block"
+          >Pesan:</label
+        >
+        <textarea id="pesan" placeholder="Masukkan Pesan Anda"></textarea>
+
+        <button onclick="kirimPesan()">Kirim</button>
+      </div>
+    </div>
+  </body>
+</html>

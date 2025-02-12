@@ -1,0 +1,168 @@
+/* Background utama */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  background: url("../img/gambar1.jpg") no-repeat center center/cover;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  background: rgba(0, 0, 0, 0.7);
+  /*Transparan*/
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 60px;
+  top: 200px;
+  bottom: 50px;
+  border-radius: 35px;
+  overflow-y: auto;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  -ms-border-radius: 35px;
+  -o-border-radius: 35px;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.schedule-item {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.schedule-item h3 {
+  margin: 0;
+}
+
+button {
+  background: #f4a261;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+button:hover {
+  background: #e76f51;
+}
+
+/* Konten utama (jam dan tanggal di tengah) */
+.main-content {
+  margin-left: 320px; /* Geser ke kanan biar tidak ketumpuk sidebar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#current-date {
+  font-size: 20px;
+}
+
+/* Box untuk jam, hari, dan tanggal */
+.time-box {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  text-align: center;
+  color: white;
+  display: inline-block;
+  bottom: 630px;
+  width: 300px;
+  padding: 20px;
+  position: fixed;
+  left: 60px;
+  top: 30px;
+  border-radius: 35px;
+  overflow-y: auto;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  -ms-border-radius: 35px;
+  -o-border-radius: 35px;
+}
+
+.time-box h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.time-box p {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Box */
+.modal-content {
+  background: white;
+  width: 20%;
+  padding: 20px;
+  margin: auto;
+  border-radius: 8px;
+  position: relative;
+  text-align: left;
+  animation-delay: 30s;
+}
+
+/* Tombol Close */
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Input Field */
+input,
+textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: block;
+  text-align: left;
+}
+
+/* Tombol Kirim */
+button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
