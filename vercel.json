@@ -1,19 +1,9 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "manage.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "update_jadwal/wsgi.py",
-      "use": "@vercel/python"
-    }
+    { "src": "manage.py", "use": "@vercel/python" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "update_jadwal/wsgi.py"
-    }
+    { "src": "/(.*)", "dest": "manage.py" }
   ]
 }
